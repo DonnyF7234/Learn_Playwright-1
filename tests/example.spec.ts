@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('Login Button', async ({ page }) => {
+test('Login to M-Compass as Manager', async ({ page }) => {
   await page.goto('https://cmsautomation.mitrais.com/CRS.UI.Web/Login/LogOn');
 
   //Login
@@ -30,7 +30,6 @@ test('Login Button', async ({ page }) => {
    
 });
 
-// test('LogOut', async ({ page }) => {
- 
+// test('Login to M-Compass as Admin', async ({ page }) => {
 
 // });
