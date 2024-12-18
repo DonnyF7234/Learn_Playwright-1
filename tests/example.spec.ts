@@ -1,9 +1,15 @@
 import { test, expect } from '@playwright/test';
 
-test('Login to M-Compass as Manager', async ({ page }) => {
-  await page.goto('https://cmsautomation.mitrais.com/CRS.UI.Web/Login/LogOn');
 
+test('Login to M-Compass as Manager', async ({ page }) => {
+  try {
+    await page.goto('https://cmsautomation.mitrais.com/CRS.UI.Web/Login/LogOn');
+  } catch (error) {
+    console.error('Gagal mengakses halaman:', error);
+  }
+  
   //Login
+  await page.goto('https://cmsautomation.mitrais.com/CRS.UI.Web/Login/LogOn');
   await page.waitForSelector("[id='btn-login']", { state: 'visible' }); //Login page
   await page.click("[id='btn-login']"); //Click Login button
   await expect(page).toHaveTitle(/Sign in/);
@@ -29,7 +35,3 @@ test('Login to M-Compass as Manager', async ({ page }) => {
    await page.waitForSelector("[id='btn-login']", { state: 'visible' }); //Login page
    
 });
-
-// test('Login to M-Compass as Admin', async ({ page }) => {
-
-// });
